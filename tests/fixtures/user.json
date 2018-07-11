@@ -1,0 +1,60 @@
+[
+  {
+    "name": "User",
+    "description": "API resources used by individual users.",
+    "resources": [
+      {
+        "element": "resource",
+        "name": "Account",
+        "description": "Resource for working with user account information.",
+        "uriTemplate": "/account",
+        "model": {},
+        "parameters": [],
+        "actions": [
+          {
+            "name": "Get Account Information",
+            "description": "Action for retrieving a user's account information.",
+            "method": "GET",
+            "parameters": [],
+            "attributes": {
+              "relation": "",
+              "uriTemplate": ""
+            },
+            "content": [],
+            "examples": [
+              {
+                "name": "",
+                "description": "",
+                "requests": [],
+                "responses": [
+                  {
+                    "name": "200",
+                    "description": "",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": "{\n    \"id\": 1,\n    \"email\": \"user@test.io\"\n}\n",
+                    "schema": "",
+                    "content": [
+                      {
+                        "element": "asset",
+                        "attributes": {
+                          "role": "bodyExample"
+                        },
+                        "content": "{\n    \"id\": 1,\n    \"email\": \"user@test.io\"\n}\n"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "content": []
+      }
+    ]
+  }
+]

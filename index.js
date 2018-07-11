@@ -1,6 +1,9 @@
-const { statSync, readdirSync, readFileSync, writeFileSync } = require('fs')
-const { resolve, extname }
+#!/usr/bin/env node
 
+const { statSync, readdirSync, readFileSync, writeFileSync } = require('fs')
+const { resolve, extname, basename } = require('path')
+
+const drafter = require('drafter.js')
 const meow = require('meow')
 
 /**
@@ -52,7 +55,21 @@ function convert (input = './', output = './') {
  * @param {*} json API Blueprint data in JSON format.
  */
 function consume (json) {
+  this.json = json
 
+  this.group = this.resource = function (filter) {
+    if (Number.isInteger(filter)) {
+      this.json = this.json[filter]
+    } else if (typeof filter === 'string') {
+
+    } else if (filter) {
+      let vals = Array.isArray(this.json) ? this.json : Object.values(this.json)
+      this.json = vals.find(filter)
+    }
+    return this
+  }
+
+  return this
 }
 
 if (module.parent) {
