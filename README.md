@@ -1,4 +1,4 @@
-# Peregrin
+# [BETA] Peregrin
 > Toolkit for converting API Blueprint files to JSON and consuming that JSON
 
 
@@ -9,7 +9,7 @@ Example of generating API Blueprint JSON files using the CLI:
 ```console
 npx peregrin src/docs docs
 
-  👍 Generated API Blueprint JSON to docs!
+  👍 Generated API Blueprint JSON!
 
 ```
 

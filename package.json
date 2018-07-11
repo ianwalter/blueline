@@ -1,7 +1,7 @@
 {
-  "name": "peregrin",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@ianwalter/peregrin",
+  "version": "0.1.0",
+  "description": "Toolkit for converting API Blueprint files to JSON and consuming that JSON",
   "main": "index.js",
   "bin": {
     "peregrin": "index.js"
@@ -13,7 +13,11 @@
     "type": "git",
     "url": "git+https://github.com/ianwalter/peregrin.git"
   },
-  "keywords": [],
+  "keywords": [
+    "API",
+    "Blueprint",
+    "JSON"
+  ],
   "author": "Ian Walter <public@iankwalter.com> (https://iankwalter.com)",
   "license": "ISC",
   "bugs": {
@@ -21,6 +25,7 @@
   },
   "homepage": "https://github.com/ianwalter/peregrin#readme",
   "dependencies": {
+    "chalk": "^2.4.1",
     "drafter.js": "^2.6.7",
     "meow": "^5.0.0"
   },
