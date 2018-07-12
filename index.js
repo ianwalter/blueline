@@ -3,6 +3,7 @@
 const { statSync, readdirSync, readFileSync, writeFileSync } = require('fs')
 const { resolve, extname, basename } = require('path')
 
+const makeDir = require('make-dir')
 const drafter = require('drafter.js')
 const meow = require('meow')
 const { green } = require('chalk')
@@ -14,15 +15,18 @@ const { green } = require('chalk')
  * @param {String} output Path to file or directory to output the generated JSON
  * file.
  */
-function convert (input, output) {
+async function convert (input, output) {
   let files = [input]
 
-  // If input is a directory, add the individual .apib files.
   const stats = statSync(input)
   if (stats.isDirectory()) {
+    // If input is a directory, convert any .apib files within the directory.
     files = readdirSync(input)
       .filter(filename => filename.includes('.apib'))
       .map(filename => resolve(input, filename))
+
+    // Make output directory and/or parent directories if necessary.
+    await makeDir(output)
   }
 
   // Parse each API Blueprint file and output the result to a JSON file.
