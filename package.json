@@ -4,7 +4,7 @@
   "description": "Toolkit for converting API Blueprint files to JSON and consuming that JSON",
   "main": "index.js",
   "bin": {
-    "peregrin": "index.js"
+    "peregrin": "cli.js"
   },
   "scripts": {
     "test": "jest"
