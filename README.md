@@ -3,16 +3,8 @@
 
 ## Installation
 
-Example of installing the CLI as a dev dependency:
-
 ```console
 npm install @ianwalter/peregrin --save-dev
-```
-
-Example of installing the library as a dependency:
-
-```console
-npm install @ianwalter/peregrin --save
 ```
 
 ## Usage
