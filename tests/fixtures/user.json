@@ -51,6 +51,69 @@
                 ]
               }
             ]
+          },
+          {
+            "name": "Update Account Information",
+            "description": "Action for updating a user's account information.",
+            "method": "PUT",
+            "parameters": [],
+            "attributes": {
+              "relation": "",
+              "uriTemplate": ""
+            },
+            "content": [],
+            "examples": [
+              {
+                "name": "",
+                "description": "",
+                "requests": [
+                  {
+                    "name": "",
+                    "description": "",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": "{\n    \"id\": 1,\n    \"email\": \"user@example.com\"\n}\n",
+                    "schema": "",
+                    "content": [
+                      {
+                        "element": "asset",
+                        "attributes": {
+                          "role": "bodyExample"
+                        },
+                        "content": "{\n    \"id\": 1,\n    \"email\": \"user@example.com\"\n}\n"
+                      }
+                    ]
+                  }
+                ],
+                "responses": [
+                  {
+                    "name": "200",
+                    "description": "",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": "    {\n        \"id\": 1,\n        \"email\": \"user@example.com\"\n    }\n",
+                    "schema": "",
+                    "content": [
+                      {
+                        "element": "asset",
+                        "attributes": {
+                          "role": "bodyExample"
+                        },
+                        "content": "    {\n        \"id\": 1,\n        \"email\": \"user@example.com\"\n    }\n"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           }
         ],
         "content": []

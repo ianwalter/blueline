@@ -5,20 +5,20 @@ module.exports = class Blueprint {
 
   find (filter, prop) {
     // Get namespaced or current JSON schema.
-    const json = prop ? this.json[prop] : this.json
+    let json = prop ? this.json[prop] : this.json
 
     // Filter the JSON schema using the filter parameter.
     if (Number.isInteger(filter)) {
-      this.json = json[filter]
+      json = json[filter]
     } else if (typeof filter === 'string') {
-      this.json = json.find(o => Object.values(o).includes(filter))
+      json = json.find(o => Object.values(o).includes(filter))
     } else if (typeof filter === 'function') {
       let values = Array.isArray(json) ? json : Object.values(json)
-      this.json = values.find(filter)
+      json = values.find(filter)
     }
 
     // Return this instance so user can chain calls.
-    return this
+    return new Blueprint(json)
   }
 
   group (filter) {

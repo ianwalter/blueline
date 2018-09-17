@@ -1,4 +1,4 @@
-const Blueprint = require('..')
+const Blueprint = require('../')
 
 const userJson = require('./fixtures/user.json')
 
@@ -31,4 +31,16 @@ test('body can return the parsed response body example', () => {
     .response(0)
     .body()
   expect(accountResponse).toEqual({ id: 1, email: 'user@test.io' })
+})
+
+test('example can be used as base for request and response', () => {
+  const example = new Blueprint(userJson)
+    .group('User')
+    .resource('Account')
+    .action('PUT')
+    .example(0)
+  const request = example.request(0).body()
+  const response = example.response(0).body()
+  expect(request).toEqual({ id: 1, email: 'user@example.com' })
+  expect(response).toEqual({ id: 1, email: 'user@example.com' })
 })

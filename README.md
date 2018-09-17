@@ -1,4 +1,4 @@
-# [BETA] Peregrin
+# Peregrin
 > Toolkit for converting API Blueprint files to JSON and consuming that JSON
 
 ## Installation

@@ -2,12 +2,18 @@
   "name": "@ianwalter/peregrin",
   "version": "0.3.0",
   "description": "Toolkit for converting API Blueprint files to JSON and consuming that JSON",
-  "main": "index.js",
+  "main": "dist/peregrin.js",
+  "umd:main": "dist/peregrin.umd.js",
+  "module": "dist/peregrin.m.js",
   "bin": {
     "peregrin": "cli.js"
   },
   "scripts": {
-    "test": "jest"
+    "build": "microbundle build index.js --compress false",
+    "watch": "microbundle watch index.js --compress false",
+    "fixtures": "node cli.js tests/fixtures tests/fixtures",
+    "test": "npm run fixtures && npm run build && jest",
+    "lint": "eslint --ext js index.js tests"
   },
   "repository": {
     "type": "git",
@@ -31,7 +37,27 @@
     "meow": "^5.0.0"
   },
   "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.1.0",
     "jest": "^23.4.0",
+    "microbundle": "^0.6.0",
     "np": "^3.0.4"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "jest/globals": true
+    },
+    "extends": [
+      "standard"
+    ],
+    "plugins": [
+      "jest"
+    ]
   }
 }

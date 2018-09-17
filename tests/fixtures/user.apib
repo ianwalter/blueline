@@ -16,3 +16,23 @@ Action for retrieving a user's account information.
             "id": 1,
             "email": "user@test.io"
         }
+
+### Update Account Information [PUT]
+
+Action for updating a user's account information.
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "id": 1,
+                "email": "user@example.com"
+            }
+
++ Response 200 (application/json)
+
+            {
+                "id": 1,
+                "email": "user@example.com"
+            }
