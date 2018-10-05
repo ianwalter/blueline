@@ -24,15 +24,18 @@ request properties has a certain value:
 ```js
 const Blueprint = require('@ianwalter/blueline')
 
-const accountJson = require('./docs/account.json')
+const json = require('./docs/account.json')
 
-const creatAccountRequest = new Blueprint(accountJson)
+const createAccountRequest = new Blueprint(json)
   .group('Account') // Returns the Resource Group named Account.
   .resource('/account') // Returns the Resource with a uriTemplate of /account.
   .action('POST') // Returns the Action with a method of POST.
   .example(0) // Returns the first example object.
   .request(0) // Returns the first request object in the example.
   .body() // Returns the JSON-parsed request body.
+  
+// Get an example request with a unique name:
+const updateAccountRequest = new Blueprint(json).request('Update Account').body()
 
 expect(creatAccountRequest.email).toEqual('user@test.io')
 ```
