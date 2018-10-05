@@ -44,3 +44,8 @@ test('example can be used as base for request and response', () => {
   expect(request).toEqual({ id: 1, email: 'user@example.com' })
   expect(response).toEqual({ id: 1, email: 'user@example.com' })
 })
+
+test('request can be returned by name', () => {
+  const request = new Blueprint(userJson).request('Successful Update').body()
+  expect(request).toEqual({ id: 1, email: 'user@example.com' })
+})

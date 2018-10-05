@@ -60,9 +60,9 @@ async function convert (input, output) {
 // Create a command-line interface to control the application.
 const cli = meow(`
   Usage
-    peregrin <input?> <output?>
+    blueline <input?> <output?>
   Example
-    ❯ npx peregrin src/docs docs
+    ❯ npx blueline src/docs docs
 
       👍 Generated API Blueprint JSON!
 

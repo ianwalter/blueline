@@ -1,20 +1,20 @@
+const findNested = require('@ianwalter/find-nested')
+
 module.exports = class Blueprint {
   constructor (json) {
     this.json = json
   }
 
   find (filter, prop) {
-    // Get namespaced or current JSON schema.
-    let json = prop ? this.json[prop] : this.json
+    let json = this.json
 
     // Filter the JSON schema using the filter parameter.
     if (Number.isInteger(filter)) {
-      json = json[filter]
+      json = (findNested(json, prop) || json)[filter]
     } else if (typeof filter === 'string') {
-      json = json.find(o => Object.values(o).includes(filter))
-    } else if (typeof filter === 'function') {
-      let values = Array.isArray(json) ? json : Object.values(json)
-      json = values.find(filter)
+      const obj = i => Object.values(i).includes(filter)
+      const descriminator = i => i && Array.isArray(i) && i.find(obj)
+      json = (findNested(json, prop, descriminator) || json).find(obj)
     }
 
     // Return this instance so user can chain calls.

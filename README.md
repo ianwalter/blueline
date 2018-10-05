@@ -1,10 +1,10 @@
-# Peregrin
+# @ianwalter/blueline
 > Toolkit for converting API Blueprint files to JSON and consuming that JSON
 
 ## Installation
 
 ```console
-npm install @ianwalter/peregrin --save-dev
+npm install @ianwalter/blueline --save-dev
 ```
 
 ## Usage
@@ -12,7 +12,7 @@ npm install @ianwalter/peregrin --save-dev
 Example of generating API Blueprint JSON files using the CLI:
 
 ```console
-npx peregrin src/docs docs
+npx blueline src/docs docs
 
   👍 Generated API Blueprint JSON!
 
@@ -22,7 +22,7 @@ Example of consuming an API Blueprint JSON file and asserting that one of the
 request properties has a certain value:
 
 ```js
-const Blueprint = require('@ianwalter/peregrin')
+const Blueprint = require('@ianwalter/blueline')
 
 const accountJson = require('./docs/account.json')
 

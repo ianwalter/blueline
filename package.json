@@ -1,12 +1,12 @@
 {
-  "name": "@ianwalter/peregrin",
+  "name": "@ianwalter/blueline",
   "version": "1.0.0",
   "description": "Toolkit for converting API Blueprint files to JSON and consuming that JSON",
-  "main": "dist/peregrin.js",
-  "umd:main": "dist/peregrin.umd.js",
-  "module": "dist/peregrin.m.js",
+  "main": "dist/blueline.js",
+  "umd:main": "dist/blueline.umd.js",
+  "module": "dist/blueline.m.js",
   "bin": {
-    "peregrin": "cli.js"
+    "blueline": "cli.js"
   },
   "scripts": {
     "build": "microbundle build index.js --compress false",
@@ -15,9 +15,13 @@
     "test": "npm run fixtures && npm run build && jest",
     "lint": "eslint --ext js index.js tests"
   },
+  "files": [
+    "dist",
+    "cli.js"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ianwalter/peregrin.git"
+    "url": "git+https://github.com/ianwalter/blueline.git"
   },
   "keywords": [
     "API",
@@ -27,10 +31,11 @@
   "author": "Ian Walter <public@iankwalter.com> (https://iankwalter.com)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ianwalter/peregrin/issues"
+    "url": "https://github.com/ianwalter/blueline/issues"
   },
-  "homepage": "https://github.com/ianwalter/peregrin#readme",
+  "homepage": "https://github.com/ianwalter/blueline#readme",
   "dependencies": {
+    "@ianwalter/find-nested": "^1.0.1",
     "chalk": "^2.4.1",
     "drafter.js": "^2.6.7",
     "make-dir": "^1.3.0",

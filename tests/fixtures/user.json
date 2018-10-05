@@ -68,7 +68,7 @@
                 "description": "",
                 "requests": [
                   {
-                    "name": "",
+                    "name": "Successful Update",
                     "description": "",
                     "headers": [
                       {
