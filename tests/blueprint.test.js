@@ -1,51 +1,56 @@
 const Blueprint = require('../')
 
-const userJson = require('./fixtures/user.json')
+const json = require('./fixtures/user.json')
 
 test('group can return a resource group by index', () => {
-  const { json } = new Blueprint(userJson).group(0)
-  expect(json.name).toEqual('User')
+  const blueprint = new Blueprint(json).group(0)
+  expect(blueprint.json.name).toEqual('User')
 })
 
 test('group can return a resource group by name', () => {
-  const { json } = new Blueprint(userJson).group('User')
-  expect(json.name).toEqual('User')
+  const blueprint = new Blueprint(json).group('User')
+  expect(blueprint.json.name).toEqual('User')
 })
 
 test('resource can return a resource by index', () => {
-  const { json } = new Blueprint(userJson).group(0).resource(0)
-  expect(json.name).toEqual('Account')
+  const blueprint = new Blueprint(json).group(0).resource(0)
+  expect(blueprint.json.name).toEqual('Account')
 })
 
 test('resource can return a resource by name', () => {
-  const { json } = new Blueprint(userJson).group('User').resource('Account')
-  expect(json.name).toEqual('Account')
+  const blueprint = new Blueprint(json).group('User').resource('Account')
+  expect(blueprint.json.name).toEqual('Account')
 })
 
 test('body can return the parsed response body example', () => {
-  const accountResponse = new Blueprint(userJson)
+  const res = new Blueprint(json)
     .group('User')
     .resource('Account')
     .action('GET')
     .example(0)
     .response(0)
     .body()
-  expect(accountResponse).toEqual({ id: 1, email: 'user@test.io' })
+  expect(res).toEqual({ id: 1, email: 'user@test.io' })
 })
 
 test('example can be used as base for request and response', () => {
-  const example = new Blueprint(userJson)
+  const example = new Blueprint(json)
     .group('User')
     .resource('Account')
     .action('PUT')
     .example(0)
-  const request = example.request(0).body()
-  const response = example.response(0).body()
-  expect(request).toEqual({ id: 1, email: 'user@example.com' })
-  expect(response).toEqual({ id: 1, email: 'user@example.com' })
+  const req = example.request(0).body()
+  const res = example.response(0).body()
+  expect(req).toEqual({ id: 1, email: 'user@example.com' })
+  expect(res).toEqual({ id: 1, email: 'user@example.com' })
 })
 
 test('request can be returned by name', () => {
-  const request = new Blueprint(userJson).request('Successful Update').body()
-  expect(request).toEqual({ id: 1, email: 'user@example.com' })
+  const req = new Blueprint(json).request('Successful Update').body()
+  expect(req).toEqual({ id: 1, email: 'user@example.com' })
+})
+
+test('example can be returned by request name', () => {
+  const req = new Blueprint(json).example('Successful Update').request().body()
+  expect(req).toEqual({ id: 1, email: 'user@example.com' })
 })

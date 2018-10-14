@@ -5,14 +5,23 @@ module.exports = class Blueprint {
     this.json = json
   }
 
-  find (filter, prop) {
+  find (filter = 0, prop) {
     let json = this.json
 
     // Filter the JSON schema using the filter parameter.
     if (Number.isInteger(filter)) {
       json = (findNested(json, prop) || json)[filter]
     } else if (typeof filter === 'string') {
-      const obj = i => Object.values(i).includes(filter)
+      const val = i => {
+        if (typeof i === 'object') {
+          return obj(i)
+        } else if (Array.isArray(i)) {
+          return i.find(val)
+        } else {
+          return i.includes(filter)
+        }
+      }
+      const obj = i => Object.values(i).find(val)
       const descriminator = i => i && Array.isArray(i) && i.find(obj)
       json = (findNested(json, prop, descriminator) || json).find(obj)
     }
