@@ -18,7 +18,7 @@ module.exports = class Blueprint {
         } else if (Array.isArray(i)) {
           return i.find(val)
         } else {
-          return i.includes(filter)
+          return i === filter
         }
       }
       const obj = i => Object.values(i).find(val)
