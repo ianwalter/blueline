@@ -33,10 +33,18 @@ const createAccountRequest = new Blueprint(json)
   .example(0) // Returns the first example object.
   .request(0) // Returns the first request object in the example.
   .body() // Returns the JSON-parsed request body.
-  
+
 // Get an example request with a unique name:
 const updateAccountRequest = new Blueprint(json).request('Update Account').body()
 
 expect(creatAccountRequest.email).toEqual('user@test.io')
 ```
+
+## License
+
+Apache 2.0 with Commons Clause - See [LICENSE](https://github.com/ianwalter/blueline/blob/master/LICENSE)
+
+&nbsp;
+
+Created by [Ian Walter](https://iankwalter.com)
 
