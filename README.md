@@ -42,9 +42,10 @@ expect(creatAccountRequest.email).toEqual('user@test.io')
 
 ## License
 
-Apache 2.0 with Commons Clause - See [LICENSE](https://github.com/ianwalter/blueline/blob/master/LICENSE)
+Apache 2.0 with Commons Clause - See [LICENSE][licenseUrl]
 
 &nbsp;
 
 Created by [Ian Walter](https://iankwalter.com)
 
+[licenseUrl]: https://github.com/ianwalter/blueline/blob/master/LICENSE
