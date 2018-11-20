@@ -13,7 +13,7 @@ test('group can return a resource group by name', () => {
 })
 
 test('resource can return a resource by index', () => {
-  const blueprint = new Blueprint(json).group(0).resource(0)
+  const blueprint = new Blueprint(json).group().resource(0)
   expect(blueprint.json.name).toEqual('Account')
 })
 
@@ -23,14 +23,14 @@ test('resource can return a resource by name', () => {
 })
 
 test('body can return the parsed response body example', () => {
-  const res = new Blueprint(json)
+  const { body } = new Blueprint(json)
     .group('User')
     .resource('Account')
     .action('GET')
     .example(0)
-    .response(0)
-    .body()
-  expect(res).toEqual({ id: 1, email: 'user@test.io' })
+    .response()
+    .json
+  expect(body).toEqual({ id: 1, email: 'user@test.io' })
 })
 
 test('example can be used as base for request and response', () => {

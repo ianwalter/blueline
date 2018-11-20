@@ -1,6 +1,8 @@
 # @ianwalter/blueline
 > Toolkit for converting API Blueprint files to JSON and consuming that JSON
 
+[![build status][buildImage]][buildUrl]
+
 ## Installation
 
 ```console
@@ -26,6 +28,7 @@ const Blueprint = require('@ianwalter/blueline')
 
 const json = require('./docs/account.json')
 
+// Verbose usage:
 const createAccountRequest = new Blueprint(json)
   .group('Account') // Returns the Resource Group named Account.
   .resource('/account') // Returns the Resource with a uriTemplate of /account.
@@ -34,10 +37,9 @@ const createAccountRequest = new Blueprint(json)
   .request(0) // Returns the first request object in the example.
   .body() // Returns the JSON-parsed request body.
 
+// Simplified usage:
 // Get an example request with a unique name:
-const updateAccountRequest = new Blueprint(json).request('Update Account').body()
-
-expect(creatAccountRequest.email).toEqual('user@test.io')
+const { body } = new Blueprint(json).request('Update Account').json
 ```
 
 ## License
@@ -48,4 +50,6 @@ Apache 2.0 with Commons Clause - See [LICENSE][licenseUrl]
 
 Created by [Ian Walter](https://iankwalter.com)
 
+[buildImage]: https://dev.azure.com/iankw/blueline/_apis/build/status/ianwalter.blueline
+[buildUrl]: https://dev.azure.com/iankw/blueline/_build
 [licenseUrl]: https://github.com/ianwalter/blueline/blob/master/LICENSE
