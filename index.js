@@ -56,6 +56,6 @@ module.exports = class Blueprint {
   }
 
   body () {
-    return JSON.parse(this.json.body)
+    return this.json.body
   }
 }

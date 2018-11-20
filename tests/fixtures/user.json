@@ -36,7 +36,10 @@
                         "value": "application/json"
                       }
                     ],
-                    "body": "{\n    \"id\": 1,\n    \"email\": \"user@test.io\"\n}\n",
+                    "body": {
+                      "id": 1,
+                      "email": "user@test.io"
+                    },
                     "schema": "",
                     "content": [
                       {
@@ -76,7 +79,10 @@
                         "value": "application/json"
                       }
                     ],
-                    "body": "{\n    \"id\": 1,\n    \"email\": \"user@example.com\"\n}\n",
+                    "body": {
+                      "id": 1,
+                      "email": "user@example.com"
+                    },
                     "schema": "",
                     "content": [
                       {
@@ -99,7 +105,10 @@
                         "value": "application/json"
                       }
                     ],
-                    "body": "    {\n        \"id\": 1,\n        \"email\": \"user@example.com\"\n    }\n",
+                    "body": {
+                      "id": 1,
+                      "email": "user@example.com"
+                    },
                     "schema": "",
                     "content": [
                       {

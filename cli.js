@@ -7,6 +7,7 @@ const makeDir = require('make-dir')
 const drafter = require('drafter.js')
 const meow = require('meow')
 const { green } = require('chalk')
+const { findAllNested } = require('@ianwalter/find-nested')
 
 /**
  * Converts API Blueprint files to JSON files.
@@ -40,6 +41,11 @@ async function convert (input, output) {
         console.error(err)
         process.exit(1)
       }
+
+      // If request/response headers contain 'json', parse the body strings.
+      const hasJsonBody = obj => obj.headers.some(h => h.value.includes('json'))
+      const results = findAllNested(ast.resourceGroups, undefined, hasJsonBody)
+      results.map(result => (result.body = JSON.parse(result.body)) && result)
 
       // Convert the resource groups to JSON.
       const json = JSON.stringify(ast.resourceGroups, null, 2)
