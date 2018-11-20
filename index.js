@@ -1,4 +1,4 @@
-const findNested = require('@ianwalter/find-nested')
+const { findNested } = require('@ianwalter/find-nested')
 
 module.exports = class Blueprint {
   constructor (json) {
