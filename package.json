@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/ianwalter/blueline#readme",
   "dependencies": {
-    "@ianwalter/find-nested": "^1.0.1",
+    "@ianwalter/find-nested": "^2.0.0",
     "chalk": "^2.4.1",
     "drafter.js": "^2.6.7",
     "make-dir": "^1.3.0",
