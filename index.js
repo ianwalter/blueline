@@ -10,7 +10,8 @@ module.exports = class Blueprint {
 
     // Filter the JSON schema using the filter parameter.
     if (Number.isInteger(filter)) {
-      json = (findNested(json, prop) || json)[filter]
+      const found = findNested(json, prop) || json
+      json = prop !== undefined ? found[filter] : found
     } else if (typeof filter === 'string') {
       const val = i => {
         if (typeof i === 'object') {
