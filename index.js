@@ -1,6 +1,7 @@
-const { findNested } = require('@ianwalter/find-nested')
+import { findNested } from '@ianwalter/find-nested'
+import isObj from 'is-plain-obj'
 
-module.exports = class Blueprint {
+export default class Blueprint {
   constructor (json) {
     this.json = json
   }
@@ -14,7 +15,7 @@ module.exports = class Blueprint {
       json = prop !== undefined ? found[filter] : found
     } else if (typeof filter === 'string') {
       const val = i => {
-        if (typeof i === 'object') {
+        if (isObj(i)) {
           return obj(i)
         } else if (Array.isArray(i)) {
           return i.find(val)

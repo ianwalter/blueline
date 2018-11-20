@@ -36,3 +36,23 @@ Action for updating a user's account information.
                 "id": 1,
                 "email": "user@example.com"
             }
+
++ Request Invalid Email (application/json)
+
+    + Body
+
+            {
+                "id": 1,
+                "email": "user@examplecom"
+            }
+
++ Response 400 (application/json)
+
+            {
+                "errors": [
+                    {
+                        "key": "email",
+                        "message": "Email must be a valid email address"
+                    }
+                ]
+            }

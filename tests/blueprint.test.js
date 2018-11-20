@@ -51,6 +51,9 @@ test('request can be returned by name', () => {
 })
 
 test('example can be returned by request name', () => {
-  const req = new Blueprint(json).example('Successful Update').request().body()
-  expect(req).toEqual({ id: 1, email: 'user@example.com' })
+  const invalidEmail = new Blueprint(json).example('Invalid Email')
+  const example = json[0].resources[0].actions[1].examples[1]
+  expect(invalidEmail.json).toEqual(example)
+  expect(invalidEmail.request().body()).toEqual(example.requests[0].body)
+  expect(invalidEmail.response().body()).toEqual(example.responses[0].body)
 })

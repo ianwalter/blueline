@@ -121,6 +121,66 @@
                     ]
                   }
                 ]
+              },
+              {
+                "name": "",
+                "description": "",
+                "requests": [
+                  {
+                    "name": "Invalid Email",
+                    "description": "",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "id": 1,
+                      "email": "user@examplecom"
+                    },
+                    "schema": "",
+                    "content": [
+                      {
+                        "element": "asset",
+                        "attributes": {
+                          "role": "bodyExample"
+                        },
+                        "content": "{\n    \"id\": 1,\n    \"email\": \"user@examplecom\"\n}\n"
+                      }
+                    ]
+                  }
+                ],
+                "responses": [
+                  {
+                    "name": "400",
+                    "description": "",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "errors": [
+                        {
+                          "key": "email",
+                          "message": "Email must be a valid email address"
+                        }
+                      ]
+                    },
+                    "schema": "",
+                    "content": [
+                      {
+                        "element": "asset",
+                        "attributes": {
+                          "role": "bodyExample"
+                        },
+                        "content": "    {\n        \"errors\": [\n            {\n                \"key\": \"email\",\n                \"message\": \"Email must be a valid email address\"\n            }\n        ]\n    }\n"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
