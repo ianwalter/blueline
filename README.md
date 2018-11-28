@@ -1,6 +1,7 @@
 # @ianwalter/blueline
 > Toolkit for converting API Blueprint files to JSON and consuming that JSON
 
+[![npm page][npmImage]][npmUrl]
 [![build status][buildImage]][buildUrl]
 
 ## Installation
@@ -50,6 +51,8 @@ Apache 2.0 with Commons Clause - See [LICENSE][licenseUrl]
 
 Created by [Ian Walter](https://iankwalter.com)
 
-[buildImage]: https://dev.azure.com/iankw/blueline/_apis/build/status/ianwalter.blueline
-[buildUrl]: https://dev.azure.com/iankw/blueline/_build
+[npmImage]: https://img.shields.io/npm/v/@ianwalter/blueline.svg
+[npmUrl]: https://www.npmjs.com/package/@ianwalter/blueline
+[buildImage]: https://dev.azure.com/ianwalter/blueline/_apis/build/status/ianwalter.blueline
+[buildUrl]: https://dev.azure.com/ianwalter/blueline/_build
 [licenseUrl]: https://github.com/ianwalter/blueline/blob/master/LICENSE
