@@ -2,7 +2,6 @@
 > Toolkit for converting API Blueprint files to JSON and consuming that JSON
 
 [![npm page][npmImage]][npmUrl]
-[![build status][buildImage]][buildUrl]
 
 ## Installation
 
@@ -51,6 +50,4 @@ Created by [Ian Walter](https://iankwalter.com)
 
 [npmImage]: https://img.shields.io/npm/v/@ianwalter/blueline.svg
 [npmUrl]: https://www.npmjs.com/package/@ianwalter/blueline
-[buildImage]: https://dev.azure.com/ianwalter/blueline/_apis/build/status/ianwalter.blueline
-[buildUrl]: https://dev.azure.com/ianwalter/blueline/_build
 [licenseUrl]: https://github.com/ianwalter/blueline/blob/master/LICENSE
