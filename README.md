@@ -16,9 +16,7 @@ Example of generating API Blueprint JSON files using the CLI:
 
 ```console
 npx blueline src/docs docs
-
-  👍 Generated API Blueprint JSON!
-
+👍 Generated API Blueprint JSON!
 ```
 
 Example of consuming an API Blueprint JSON file and asserting that one of the
