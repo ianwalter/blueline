@@ -3,20 +3,19 @@
   "version": "1.2.1",
   "description": "Toolkit for converting API Blueprint files to JSON and consuming that JSON",
   "main": "dist/blueline.js",
-  "umd:main": "dist/blueline.umd.js",
-  "module": "dist/blueline.m.js",
+  "module": "index.js",
   "bin": {
     "blueline": "cli.js"
   },
   "scripts": {
-    "build": "microbundle build index.js --no-compress --external none",
-    "watch": "microbundle watch index.js --no-compress --external none",
-    "fixtures": "node cli.js tests/fixtures tests/fixtures",
-    "test": "npm run fixtures && npm run build && jest",
-    "lint": "eslint --ext js index.js tests"
+    "lint": "eslint --ext js index.js tests",
+    "fixtures": "./cli.js tests/fixtures tests/fixtures",
+    "pretest": "dist && npm run fixtures",
+    "test": "jest"
   },
   "files": [
     "dist",
+    "index.js",
     "cli.js"
   ],
   "repository": {
@@ -43,6 +42,7 @@
     "meow": "^5.0.0"
   },
   "devDependencies": {
+    "@ianwalter/dist": "^1.0.0-1",
     "eslint": "^5.7.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.12.0",
@@ -51,7 +51,6 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "jest": "^23.4.0",
-    "microbundle": "^0.8.1",
     "np": "^3.0.4"
   },
   "eslintConfig": {

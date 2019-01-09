@@ -60,7 +60,7 @@ async function convert (input, output) {
   })
 
   // Inform the user that the JSON file(s) have been generated.
-  console.log(green(`\n  👍 Generated API Blueprint JSON!`))
+  console.log(green(`👍 Generated API Blueprint JSON!`))
 }
 
 // Create a command-line interface to control the application.
@@ -70,7 +70,7 @@ const cli = meow(`
   Example
     ❯ npx blueline src/docs docs
 
-      👍 Generated API Blueprint JSON!
+    👍 Generated API Blueprint JSON!
 
 `)
 
