@@ -348,12 +348,10 @@
     rollup-plugin-json "^3.1.0"
     rollup-plugin-node-resolve "^4.0.0"
 
-"@ianwalter/find-nested@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@ianwalter/find-nested/-/find-nested-2.0.1.tgz#6813795d540c1a661aa1a38add6c9243204ef54f"
-  integrity sha512-pPJ1IvTIMQjzMWoo+D5D/RML7GWxw6JyLCzbONKKEdAW7n64inWDysmNKrDt8CoKRakyzOMFtNcXX4gQPcr2tA==
-  dependencies:
-    is-plain-obj "^1.1.0"
+"@ianwalter/find-nested@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@ianwalter/find-nested/-/find-nested-2.0.2.tgz#a8f1442ed3d0855beb89e331543390a9bb0a94b7"
+  integrity sha512-9FHha06IAvn3tsEWXc0dVXW+MEcwajTrT9sWgv7J2bWJfnpNRCLFtO3v7GEMnMqMX3ynf5yItwXiZqtVv3+onA==
 
 "@ianwalter/npm-short-name@^1.0.0":
   version "1.0.0"
