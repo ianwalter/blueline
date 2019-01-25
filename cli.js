@@ -4,10 +4,9 @@ const { statSync, readdirSync, readFileSync, writeFileSync } = require('fs')
 const { resolve, extname, basename } = require('path')
 
 const makeDir = require('make-dir')
-const drafter = require('drafter.js')
 const meow = require('meow')
 const { green } = require('chalk')
-const { findAllNested } = require('@ianwalter/find-nested')
+const { parse } = require('.')
 
 /**
  * Converts API Blueprint files to JSON files.
@@ -31,32 +30,19 @@ async function convert (input, output) {
   }
 
   // Parse each API Blueprint file and output the result to a JSON file.
-  files.forEach(file => {
-    // Read the API Blueprint file's content.
-    const content = readFileSync(file, 'utf8')
+  files.forEach(async file => {
+    // Read and parse the API Blueprint content using drafter.js.
+    const resourceGroups = await parse(readFileSync(file, 'utf8'))
 
-    // Parse the API Blueprint content using drafter.js.
-    drafter.parse(content, { type: 'ast' }, function (err, { ast }) {
-      if (err) {
-        console.error(err)
-        process.exit(1)
-      }
+    // Convert the resource groups to JSON.
+    const json = JSON.stringify(resourceGroups, null, 2)
 
-      // If request/response headers contain 'json', parse the body strings.
-      const hasJsonBody = obj => obj.headers.some(h => h.value.includes('json'))
-      const results = findAllNested(ast.resourceGroups, undefined, hasJsonBody)
-      results.map(result => (result.body = JSON.parse(result.body)) && result)
-
-      // Convert the resource groups to JSON.
-      const json = JSON.stringify(ast.resourceGroups, null, 2)
-
-      // Write the JSON to the JSON file.
-      if (extname(output) === '.json') {
-        writeFileSync(output, json)
-      } else {
-        writeFileSync(resolve(output, `${basename(file, '.apib')}.json`), json)
-      }
-    })
+    // Write the JSON to the JSON file.
+    if (extname(output) === '.json') {
+      writeFileSync(output, json)
+    } else {
+      writeFileSync(resolve(output, `${basename(file, '.apib')}.json`), json)
+    }
   })
 
   // Inform the user that the JSON file(s) have been generated.

@@ -22,9 +22,9 @@ Example of consuming an API Blueprint JSON file and asserting that one of the
 request properties has a certain value:
 
 ```js
-const Blueprint = require('@ianwalter/blueline')
+import { Blueprint } from '@ianwalter/blueline'
 
-const json = require('./docs/account.json')
+import json from './docs/account.json'
 
 // Verbose usage:
 const createAccountRequest = new Blueprint(json)
@@ -40,6 +40,11 @@ const createAccountRequest = new Blueprint(json)
 const { body } = new Blueprint(json).request('Update Account').json
 ```
 
+## Related
+
+* [`@ianwalter/drakov`][drakovUrl] -  Mock server that implements the API
+Blueprint specification
+
 ## License
 
 Apache 2.0 with Commons Clause - See [LICENSE][licenseUrl]
@@ -50,4 +55,5 @@ Created by [Ian Walter](https://iankwalter.com)
 
 [npmImage]: https://img.shields.io/npm/v/@ianwalter/blueline.svg
 [npmUrl]: https://www.npmjs.com/package/@ianwalter/blueline
+[drakovUrl]: https://github.com/ianwalter/drakov
 [licenseUrl]: https://github.com/ianwalter/blueline/blob/master/LICENSE

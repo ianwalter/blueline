@@ -1,5 +1,5 @@
 import test from 'ava'
-import Blueprint from '..'
+import { Blueprint } from '..'
 import json from './fixtures/user.json'
 
 test('group can return a resource group by index', t => {
