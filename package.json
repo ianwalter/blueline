@@ -41,7 +41,7 @@
     "meow": "^5.0.0"
   },
   "devDependencies": {
-    "@ianwalter/dist": "^1.4.0",
+    "@ianwalter/dist": "^1.5.1",
     "ava": "^1.2.0",
     "eslint": "^5.12.1",
     "eslint-config-standard": "^12.0.0",
