@@ -37,7 +37,7 @@
     "@ianwalter/find-nested": "^2.0.3",
     "chalk": "^2.4.2",
     "drafter.js": "^2.6.7",
-    "make-dir": "^2.0.0",
+    "make-dir": "^2.1.0",
     "meow": "^5.0.0"
   },
   "devDependencies": {
