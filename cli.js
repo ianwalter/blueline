@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { statSync, readdirSync, readFileSync, writeFileSync } = require('fs')
+const { stat, readdirSync, readFile, writeFile } = require('@ianwalter/fs')
 const { resolve, extname, basename } = require('path')
 
 const makeDir = require('make-dir')
@@ -18,10 +18,10 @@ const { parse } = require('.')
 async function convert (input, output) {
   let files = [input]
 
-  const stats = statSync(input)
+  const stats = await stat(input)
   if (stats.isDirectory()) {
     // If input is a directory, convert any .apib files within the directory.
-    files = readdirSync(input)
+    files = await readdirSync(input)
       .filter(filename => filename.includes('.apib'))
       .map(filename => resolve(input, filename))
 
@@ -32,16 +32,16 @@ async function convert (input, output) {
   // Parse each API Blueprint file and output the result to a JSON file.
   files.forEach(async file => {
     // Read and parse the API Blueprint content using drafter.js.
-    const resourceGroups = await parse(readFileSync(file, 'utf8'))
+    const resourceGroups = await parse(await readFile(file, 'utf8'))
 
     // Convert the resource groups to JSON.
     const json = JSON.stringify(resourceGroups, null, 2)
 
     // Write the JSON to the JSON file.
     if (extname(output) === '.json') {
-      writeFileSync(output, json)
+      await writeFile(output, json)
     } else {
-      writeFileSync(resolve(output, `${basename(file, '.apib')}.json`), json)
+      await writeFile(resolve(output, `${basename(file, '.apib')}.json`), json)
     }
   })
 

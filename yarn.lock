@@ -456,6 +456,11 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/find-nested/-/find-nested-2.0.3.tgz#18b9c3bb490ef4e9175b43c5a38616eab7f1e908"
   integrity sha512-AcZPqSkwsA1zfSXLBT04PT+P/XaAyds6v9lVq6LFk8R3gbfMk5c3MGIsmj6Jq6o3Vg4EKKsaZmR6Gpx93bn7SA==
 
+"@ianwalter/fs@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/fs/-/fs-1.0.0.tgz#1a32ef4edf56d42f318cb7c8024691dc3cf5a916"
+  integrity sha512-9wJ4gaVaHGchXJyqbMpsqCpwWY6TIf0EtQSSfmPpL6bq1FnO1Hkc2Q/j5xn6aX3zeZRx9C/9y4ASeFbzWlHZSg==
+
 "@ianwalter/npm-short-name@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/npm-short-name/-/npm-short-name-1.0.0.tgz#1ff8fcf73a20841e8fa13af77957a01c6e2329e8"
